@@ -48,7 +48,7 @@ Bomb explode
 After bomb is disarmed
     it wont explode after two seconds
     it won't hurt if wires are cut again.
-    
+
 ```
 
 ## Module structure
