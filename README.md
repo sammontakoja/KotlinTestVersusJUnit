@@ -34,10 +34,22 @@ Enough talk, let the code show details and decide your self which one is better.
 In order to test testing libraries we need specs...
 
 ## bomb specification
-- Bomb will be ticking after it is initialized.
-- Bomb explode after two seconds.
-- Bomb is disposed if all wires are cut.
-- Bomb explode if wires are NOT cut in following order: green, yellow and blue
+```
+Bomb tick after creating it.
+
+Bomb disarmed when wires are cut in following order: green, yellow and blue.
+
+Bomb explode
+    after two seconds.
+    when yellow wire is cut first.
+    when blue wire is cut first.
+    when green wire is cut first and then blue.
+
+After bomb is disarmed
+    it wont explode after two seconds
+    it won't hurt if wires are cut again.
+    
+```
 
 ## Module structure
 
