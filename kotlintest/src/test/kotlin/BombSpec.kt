@@ -1,21 +1,9 @@
-import io.kotlintest.eventually
-import io.kotlintest.matchers.fail
-import io.kotlintest.matchers.should
 import io.kotlintest.matchers.shouldBe
-import io.kotlintest.matchers.shouldThrow
 import io.kotlintest.specs.FreeSpec
-import java.util.concurrent.TimeUnit
 
 class BombSpec : FreeSpec() {
 
     init {
-
-        """
-Bomb will be ticking after it is initialized.
-Bomb explode after two seconds.
-Bomb is disposed if all wires are cut.
-Bomb explode if wires are NOT cut in following order: green, yellow and blue
-"""
 
         val waitOverTwoSeconds = fun() { Thread.sleep(2100) }
 

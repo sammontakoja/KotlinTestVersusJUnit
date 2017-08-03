@@ -29,6 +29,7 @@
 
     <modules>
         <module>bomb</module>
+        <module>junit4</module>
         <module>junit5</module>
         <module>kotlintest</module>
     </modules>

@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.Stack;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -25,7 +24,8 @@ public class Bomb {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                state = "kaboom!";
+                if (state.equals("ticktock"))
+                    state = "kaboom!";
             }
         };
         Timer t = new Timer();
