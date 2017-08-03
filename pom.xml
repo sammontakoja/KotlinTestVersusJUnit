@@ -29,7 +29,7 @@
 
     <modules>
         <module>bomb</module>
-        <module>junit</module>
+        <module>junit5</module>
         <module>kotlintest</module>
     </modules>
 
