@@ -46,7 +46,7 @@ Writing tests is fun when...
 1. Tests run fast
 1. Tests contains noise code as little as possible
 1. Tests are easy to group together
-1. Tests are easy to run with IDE (I use IDEA)
+1. Tests can be run with IDE (I use IDEA)
 1. Tests are easy to run with popular build tools
 
 ## Module structure
@@ -65,13 +65,39 @@ pom.xml --> parent module for whole project, compile and run all tests with comm
 ```
 
 
-## At the end of the day
-TODO
+## Results
+
+| Library    	| Compile and runtime using maven plugins 	| LOC 	| Grouping                            	| IDE support (IDEA 2017.2)                   	|
+|------------	|-----------------------------------------	|-----	|-------------------------------------	|---------------------------------------------	|
+| JUnit4     	| 5.218 s                                 	| 84  	| Implemented with annotations        	| Best, run fast and can run single test case 	|
+| JUnit5     	| 5.834 s                                 	| 84  	| Implemented with annotations        	| Poor, did not run                           	|
+| KotlinTest 	| 6.227 s                                 	| 63  	| Implemented with lambda expressions 	| Good, run all tests pretty fast             	|
+
+Both junit libraries can be run faster than Kotlin tests because compiler
+kotlin source code takes more time than compiling java code. All in all
+compile and runtime difference quite small so I guess this is a tie.
+
+Both JUnit libraries are written with java and it has huge impact on
+test case readability. In this section kotlintest is a clear winner.
+
+JUnit5 (RC2 version) test cases didn't run at all with Intellij Idea,
+I don't know is this the case with other IDE's like eclipse.
+JUnit4 shine with it's excellent IDE support .
+KotlinTest test cases run pretty smoothly in IDEA which isn't a big surprise
+because both kotlin and IDEA IDE are created by JetBrains.
+
+## Winner --> KotlinTest
+
+All in all I warmly recommend KotlinTest.
+Test cases are so much nicer to write and read compared to junit4 and junit5.
+Tests run speed is good enough.
+
+Hands down, KotlinTest is best unit testing library I have ever used.
 
 ## Platform requirements
 Maven3 and Java8 JDK
 
-## bomb specification
+## bomb specification written in tests.
 
 ```
 Bomb tick after creating it.
