@@ -4,9 +4,6 @@
 
 In java world tests are usually written with popular JUnit4 library.
 
-Test cases need some kind of a structure,
-otherwise tests are hard to read and maintain.
-
 JUnit4 works quite well when dealing with simple specification
 but it's different story when specification is complex.
 
@@ -26,9 +23,8 @@ files WhenDogDoThis.java and WhenDogDoThat.java.
 It's year 2017, something better must be out there!
 After a little search I came up with three possible solutions.
 
-1) Stick to JUnit4, use best custom runner what the is to offer.
+1) Stick to JUnit4, use best custom runner which support test grouping.
 (It seems to be https://github.com/bechte/junit-hierarchicalcontextrunner/wiki)
-Very boring
 
 2) Use JUnit5 which I could imagine has solved test grouping problem.
 
