@@ -88,16 +88,17 @@ because both kotlin and IDEA IDE are created by JetBrains.
 
 ## Winner --> KotlinTest
 
-All in all I warmly recommend KotlinTest.
-Test cases are so much nicer to write and read compared to junit4 and junit5.
-Tests run speed is good enough.
+I recommend KotlinTest.
 
-Hands down, KotlinTest is best unit testing library I have ever used.
+KotlinTest is best unit testing library I have ever used.
+
+Tests are not bloated with noise code and they run fast enough
+and other tools support it well.
 
 ## Platform requirements
 Maven3 and Java8 JDK
 
-## bomb specification written in tests.
+## Specification found from all tests.
 
 ```
 Bomb tick after creating it.
