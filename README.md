@@ -1,39 +1,78 @@
-# KotlinTest vs JUnit 5
+# KotlinTest vs JUnit4 vs Junit5
 
-Tests can be used as specification when writing new code.
-Quite often specification is rather complex which means we have to
-write lot of tests for single specification.
+## Why bother comparing jvm test libraries
 
-Dealing with lot of tests require some kind of a test grouping,
-otherwise test readability will be bad and written specification makes no sense anymore.
+In java world tests are usually written with popular JUnit4 library.
 
-Standard JUnit4 test library is clumsy at grouping tests. When I write tests with JUnit4 I have to
-split test specification to many files, even if implementation can be written in one file.
-As an example dog implementation file Dog.java and tests in files WhenDogBarks.java and WhenDogEat.java.
-It would be nice to have single DogSpec.java file which contains all test specifications.
+Test cases need some kind of a structure,
+otherwise tests are hard to read and maintain.
 
-There are few libraries created which make it possible to have some kind of test hierarchy inside a junit4 test file but
-even so I do not recommend using them because there are better alternatives...
+JUnit4 works quite well when dealing with simple specification
+but it's different story when specification is complex.
 
-There are zillion of newer jvm unit test libraries out there but I could bet at least one of the following
-will be popular: JUnit5 and KotlinTest. This raises a question, which one is better?
+JUnit4 is bad at grouping test cases inside one file.
+Few libraries can be used to tackle this problem by creating junit runners.
+I have tried few of them and been little disappointed and therefore stopped using them.
 
-Of course test grouping is not only thing which matters when deciding which test library should be used.
-To me programming experience is the most important thing, therefore library should be comfortable to use.
+As a fix to "many junit test cases inside one file"- problem I have
+spread test cases (about one specification) into several files.
 
-In testing context this means...
+I don't like this approach. It would be nice to have DogSpec.java file
+which contains all test cases for Dob class implementation instead of
+files WhenDogDoThis.java and WhenDogDoThat.java.
 
-1) tests run fast (compile+run)
-2) tests contains noise code as little as possible
-3) tests are easy to group together
-4) tests are easy to run with popular build tool (using maven)
-5) tests are easy to run with IDE (I use IDEA)
+## Alternatives
 
-Enough talk, let the code show details and decide your self which one is better.
+It's year 2017, something better must be out there!
+After a little search I came up with three possible solutions.
 
-In order to test testing libraries we need specs...
+1) Stick to JUnit4, use best custom runner what the is to offer.
+(It seems to be https://github.com/bechte/junit-hierarchicalcontextrunner/wiki)
+Very boring
+
+2) Use JUnit5 which I could imagine has solved test grouping problem.
+
+3) Use something totally different like kotlintest which seems to be very promising.
+
+## Good programming experience
+
+Grouping tests is not only thing which matters when choosing new library.
+
+In the end programming experience is the most important thing,
+therefore library should be comfortable to use.
+
+Writing tests is fun when...
+
+1. Tests run fast
+1. Tests contains noise code as little as possible
+1. Tests are easy to group together
+1. Tests are easy to run with IDE (I use IDEA)
+1. Tests are easy to run with popular build tools
+
+## Module structure
+
+```
+pom.xml --> parent module for whole project, compile and run all tests with command 'mvn test'
+├── bomb
+│   ├── src --> Contains bomb implementation
+│   └── pom.xml --> libraries for bomb implementation (java8)
+├── junit4
+│   ├── src --> test specification written with junit4
+│   └── pom.xml --> libraries for Junit4
+├── kotlintest
+│   ├── src --> test specification written with kotlintest
+│   └── pom.xml --> libraries for kotlintest
+```
+
+
+## At the end of the day
+TODO
+
+## Platform requirements
+Maven3 and Java8 JDK
 
 ## bomb specification
+
 ```
 Bomb tick after creating it.
 
@@ -51,26 +90,3 @@ After bomb is disarmed
 
 ```
 
-## Module structure
-
-Both Junit5 and KotlinTest code are put into own module.
-This way it's easier to compare things like compile and run time.
-
-Naturally both test modules should test exactly same things in order to
-contain same specification for bomb implementation.
-
-```
-pom.xml --> parent module for whole project, compile and run all tests with command 'mvn test'
-├── bomb
-│   ├── src --> contains bomb implementation
-│   └── pom.xml --> libraries for bomb implementation (java8)
-├── junit
-│   ├── src --> test specification written with junit5
-│   └── pom.xml --> libraries for Junit5
-├── kotlintest
-│   ├── src --> test specification written with kotlintest
-│   └── pom.xml --> libraries for kotlintest
-```
-
-## Platform requirements
-Maven3 and Java8 JDK
