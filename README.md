@@ -8,7 +8,7 @@ JUnit4 works quite well when dealing with simple specification
 but it's different story when specification is complex.
 
 JUnit4 is bad at grouping test cases inside one file.
-Few libraries can be used to tackle this problem by creating junit runners.
+Few libraries can be used to tackle this problem by using junit runners.
 I have tried few of them and been little disappointed and therefore stopped using them.
 
 As a fix to "many junit test cases inside one file"- problem I have
