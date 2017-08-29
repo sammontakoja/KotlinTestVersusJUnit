@@ -50,6 +50,7 @@ class BombSpec : FreeSpec({
             bomb.cutWires(Wire.green, Wire.yellow, Wire.blue)
             bomb.state() shouldBe "disarmed"
             bomb.cutWires(Wire.green)
+            bomb.state() shouldBe "disarmed"
         }
 
         "it wont explode after two seconds" {
